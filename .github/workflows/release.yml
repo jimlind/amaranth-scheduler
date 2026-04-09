@@ -26,10 +26,5 @@ jobs:
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
       - run: mvn versions:set -DnewVersion=${{ env.RELEASE_VERSION }} && mvn package -DskipTests
-        working-directory: amaranth-scheduler
 
       - run: mvn deploy
-        working-directory: amaranth-scheduler
-        env:
-          GITHUB_USERNAME: ${{ secrets.GITHUB_ACTOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
