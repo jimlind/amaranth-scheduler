@@ -5,7 +5,7 @@
 
     <groupId>jimlind</groupId>
     <artifactId>amaranth</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <packaging>jar</packaging>
 
     <name>Amaranth Scheduler</name>
@@ -89,6 +89,7 @@
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
+                            <keyname>FFE10673340846CB</keyname>
                         </configuration>
                     </execution>
                 </executions>
