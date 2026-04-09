@@ -5,7 +5,7 @@
 
     <groupId>jimlind</groupId>
     <artifactId>amaranth</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>Amaranth Scheduler</name>
