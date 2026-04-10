@@ -22,6 +22,13 @@ jobs:
           server-username: ${{ secrets.CENTRAL_USERNAME }}
           server-password: ${{ secrets.CENTRAL_PASSWORD }}
 
+      - name: Configure GPG for loopback mode
+        run: |
+          echo "use-agent" >> ~/.gnupg/gpg.conf
+          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+          gpgconf --kill gpg-agent
+
       - name: Debug passphrase length
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
