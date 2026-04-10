@@ -22,22 +22,16 @@ jobs:
           server-username: ${{ secrets.CENTRAL_USERNAME }}
           server-password: ${{ secrets.CENTRAL_PASSWORD }}
 
-      - name: Configure GPG for loopback mode
-        run: |
-          echo "use-agent" >> ~/.gnupg/gpg.conf
-          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
-          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
-          gpgconf --kill gpg-agent
-
-      - name: Debug passphrase length
+      - name: Set GPG passphrase environment variable
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: |
-          echo "Passphrase length: ${#GPG_PASSPHRASE}"
+        run: echo "GPG_PASSPHRASE=$GPG_PASSPHRASE" >> $GITHUB_ENV
 
       - id: extract_version
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
-      - run: mvn versions:set -DnewVersion=${{ env.RELEASE_VERSION }} && mvn package -DskipTests
+      - name: Set project version
+        run: mvn versions:set -DnewVersion=${{ env.RELEASE_VERSION }}
 
-      - run: mvn deploy
+      - name: Publish to Maven Central
+        run: mvn publish -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }}
