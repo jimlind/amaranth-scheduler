@@ -5,7 +5,7 @@
 
     <groupId>io.github.jimlind</groupId>
     <artifactId>amaranth</artifactId>
-    <version>0.0.23</version>
+    <version>0.0.24</version>
     <packaging>jar</packaging>
 
     <name>Amaranth Scheduler</name>
@@ -83,12 +83,6 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
-                        <configuration>
-                            <gpgArguments>
-                                <arg>--pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
