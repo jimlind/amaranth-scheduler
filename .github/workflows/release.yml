@@ -18,6 +18,9 @@ jobs:
           java-version: '21'
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          server-id: central
+          server-username: ${{ secrets.CENTRAL_USERNAME }}
+          server-password: ${{ secrets.CENTRAL_PASSWORD }}
 
       - name: Set GPG passphrase environment variable
         env:
@@ -31,7 +34,4 @@ jobs:
         run: mvn versions:set -DnewVersion=${{ env.RELEASE_VERSION }}
 
       - name: Publish to Maven Central
-        env:
-          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
-          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
         run: mvn deploy
