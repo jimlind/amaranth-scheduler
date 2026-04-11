@@ -29,4 +29,6 @@ jobs:
         run: mvn versions:set -DnewVersion=${{ env.RELEASE_VERSION }}
 
       - name: Publish to Maven Central
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: mvn deploy
