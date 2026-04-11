@@ -40,10 +40,6 @@ jobs:
             </servers>
           </settings>
           EOF
-          echo "Settings file created"
-          cat ~/.m2/settings.xml
-          echo "Username length: ${#CENTRAL_USERNAME}"
-          echo "Password length: ${#CENTRAL_PASSWORD}"
 
       - id: extract_version
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
