@@ -27,6 +27,9 @@ jobs:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: echo "MAVEN_GPG_PASSPHRASE=$MAVEN_GPG_PASSPHRASE" >> $GITHUB_ENV
 
+      - name: Debug settings.xml
+        run: cat ~/.m2/settings.xml
+
       - id: extract_version
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
