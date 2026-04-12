@@ -1,6 +1,7 @@
 # Amaranth Scheduler
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue?logo=gnu&logoColor=white)](https://www.gnu.org/licenses/agpl-3.0)
+[![Format Check](https://github.com/jimlind/amaranth-scheduler/actions/workflows/run-format-check.yml/badge.svg)](https://github.com/jimlind/amaranth-scheduler/actions/workflows/run-format-check.yml)
 [![JUnit Tests](https://github.com/jimlind/amaranth-scheduler/actions/workflows/run-junit-test.yml/badge.svg)](https://github.com/jimlind/amaranth-scheduler/actions/workflows/run-junit-test.yml)
 [![PMD Static Analysis](https://github.com/jimlind/amaranth-scheduler/actions/workflows/run-static-analysis.yml/badge.svg)](https://github.com/jimlind/amaranth-scheduler/actions/workflows/run-static-analysis.yml)
 
